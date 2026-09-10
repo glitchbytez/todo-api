@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: todo-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tododb
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate   # we'll use Flyway/Liquibase for schema, not auto-DDL — production habit
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
