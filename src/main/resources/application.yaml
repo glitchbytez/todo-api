@@ -7,11 +7,14 @@ spring:
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: validate   # we'll use Flyway/Liquibase for schema, not auto-DDL — production habit
+      ddl-auto: none      # Flyway owns the schema now, Hibernate touches nothing
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
 server:
   port: 8080
